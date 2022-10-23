@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <style>
+        .wrapper{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box_1{
+            width: 100px;
+            height: 100px;
+            background: #E64326;
+        }
+        .box_2{
+            width: 100px;
+            height: 100px;
+            background: #8090A5;
+        }
+        .box_3{
+            width: 100px;
+            height: 100px;
+            background: #F5F6FA;
+        }
+        .box_4{
+            width: 100px;
+            height: 100px;
+            background: #283E74;
+        }
+        .arc_1{
+            width: 50px;
+            height: 50px;
+            background: #F5F6FA;
+            position:relative;
+            top: 50%;
+            left: 50%;
+            border-radius: 100px 0 100px 0 ;
+        }
+        .arc_2{
+            width: 50px;
+            height: 50px;
+            background: #E64326;
+            position:relative;
+            top: 0;
+            left: 50%;
+            border-radius: 0 100px 0 100px ;
+        }
+        .arc_3{
+            width: 50px;
+            height: 50px;
+            background: #283E74;
+            position:relative;
+            top: 50%;
+            left: 0;
+            border-radius: 0 100px 0 100px ;
+        }
+        .arc_4{
+            width: 50px;
+            height: 50px;
+            background: #8090A5;
+            position:relative;
+            top: 0;
+            left: 0;
+            border-radius: 100px 0px 100px 0 ;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div>
+            <div class="box_1">
+                <div class="arc_1"></div>
+            </div>
+            <div class="box_2">
+                <div class="arc_2"></div>
+            </div>
+        </div>
+        <div>
+            <div class="box_3">
+                <div class="arc_3"></div>
+            </div>
+            <div class="box_4">
+                <div class="arc_4"></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
