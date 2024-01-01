@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+
+        .center {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #clock {
+            font-size: 40px;
+            background-color: orange;
+            padding: 20px 50px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <button id="btn">Show Date</button>
+        <div id="header">Your Local Time</div>
+        <div id="clock"></div>
+    </div>
+</body>
+<script>
+    const clock = document.querySelector('#clock');
+    const btn = document.querySelector('#btn');
+    let check = false;
+    let intervalID;
+
+    (function displayDateTime() {
+        if (check) {
+            clearInterval(intervalID);
+            displayDate();
+        }
+        else {
+            displayTime();
+        }
+    })();
+
+    btn.addEventListener('click', function () {
+        check = !check;
+        if (!check) {
+            btn.innerHTML = 'Show Date';
+            clearInterval(intervalID)
+            displayTime();
+        }
+        else {
+            btn.innerHTML = 'Show Time';
+            clearInterval(intervalID)
+            displayDate();
+        }
+    });
+
+    function displayTime() {
+        let myDate = new Date();
+        clock.innerHTML = myDate.toLocaleTimeString();
+        intervalID = setInterval(function () {
+            myDate = new Date();
+            clock.innerHTML = myDate.toLocaleTimeString();
+        }, 1000)
+    }
+    function displayDate() {
+        let myDate = new Date();
+        clock.innerHTML = myDate.toLocaleDateString();
+    }
+</script>
+
+</html>
