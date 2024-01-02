@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+    <style>
+        body {
+            background-color: #414141;
+            color: #fff;
+        }
+
+        a {
+            color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="images">
+            <li>
+                <img width="200px" alt="bridge" id="bridge"
+                    src="https://images.pexels.com/photos/8256772/pexels-photo-8256772.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load">
+            </li>
+            <li>
+                <img width="200px" id="coffee"
+                    src="https://images.pexels.com/photos/18086755/pexels-photo-18086755/free-photo-of-pouring-milk-in-coffee.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                    alt="coffee">
+            </li>
+            <li>
+                <a href="yahoo.com" id="yahoo">Yahoo</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    // Old Approches
+    // AttachEvent()
+    // jQuery - on
+    document.getElementById('coffee').onclick = function () {
+        //     alert('clicked');
+    }
+
+    // New Approach
+    document.getElementById('coffee').addEventListener('click', function (e) {
+        // console.log(e);
+    }, false);
+
+    // To Study
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY -> Important For the Interview
+    // altkey, ctrlkey, keyCode
+
+    // EventPropogation
+    // Event Bubbling -> flase -> Mostly Used in the Market
+    // Event Capturing -> true
+
+    // Examples Of Bubbling false is defult value
+    document.getElementById('images').addEventListener('click', function (e) {
+        // console.log('Parent Div');
+    }, false);
+
+    document.getElementById('coffee').addEventListener('click', function (e) {
+        // console.log('Bottom');
+    }, false);
+
+    // Examples of event capturing
+    document.getElementById('images').addEventListener('click', function (e) {
+        // console.log('Parent Div');
+    }, true);
+
+    document.getElementById('coffee').addEventListener('click', function (e) {
+        // console.log('Bottom');
+    }, true);
+
+    // Examples of Stopping the bubbling
+    document.getElementById('coffee').addEventListener('click', function (e) {
+        // console.log('coffee');
+        // e.stopPropagation();
+    }, false);
+
+    // Examples of prevent Default
+    document.getElementById('yahoo').addEventListener('click', (e) => {
+        e.preventDefault();
+        // console.log("Clicked on the Yahoo");
+    }, false)
+
+
+    document.querySelector('#images').addEventListener(
+        'click', (e) => {
+            let ul = e.target;
+            if (ul.tagName === 'IMG') {
+                console.log(ul.tagName); 
+                ul.parentNode.remove();
+            }
+            // ul.parentNode.removeChild(ul);
+        }
+    )
+
+
+</script>
+
+</html>
