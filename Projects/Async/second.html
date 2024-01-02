@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    try {
+
+        const startButton = document.querySelector("#start");
+        const stopButton = document.querySelector("#stop");
+
+        if (!startButton || !stopButton) {
+            throw new Error("Buttons not Found in the DOM");
+        }
+        const currentTime = (username) => {
+            console.log(username, new Date().toLocaleTimeString());
+        };
+
+
+        let intervalID;
+
+        const startPrinting = () => {
+            intervalID = setInterval(currentTime, 1000, 'Ranjan');
+        }
+
+
+        startButton.addEventListener('click', () => { startPrinting() });
+
+        stopButton.addEventListener('click', () => { clearInterval(intervalID); })
+
+    } catch (error) {
+        console.error(error.message);
+    }
+
+
+
+</script>
+
+</html>
